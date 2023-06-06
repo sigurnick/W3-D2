@@ -72,7 +72,12 @@ addToTheSecond();
        Scrivi una funzione che aggiunga un secondo paragrafo al primo div
     */
 
-const addParagraph = function () {};
+const addParagraph = function () {
+  let div = document.querySelector("body div div");
+  let newP = document.createElement("p");
+  newP.innerText = "testo";
+  div.appendChild("newP");
+};
 
 /* ESERCIZIO 7
        Scrivi una funzione che faccia scomparire la prima lista non ordinata
@@ -105,29 +110,29 @@ paintItGreen();
       */
 
 const makeItClickable = function () {
-
-    let h1 = document.getElementsByTagName("h1")
-   let stringa = h1[0].innerText
-   stringa = stringa.slice(0,stringa.length-1)
-   console.log(stringa);
-   h1[0].innerText= stringa
-
+  let h1 = document.getElementsByTagName("h1");
+  let stringa = h1[0].innerText;
+  stringa = stringa.slice(0, stringa.length - 1);
+  console.log(stringa);
+  h1[0].innerText = stringa;
 };
 
 // makeItClickable()
-let h1 = document.getElementsByTagName("h1")
-h1[0].onclick = makeItClickable
-
+let h1 = document.getElementsByTagName("h1");
+h1[0].onclick = makeItClickable;
 
 /* ESERCIZIO 10
        Crea una funzione che, al click sul footer, riveli l'URL del link interno come contenuto di un alert()
       */
 
 const revealFooterLink = function () {
-
-
+  let ancora = document.getElementsByTagName("a")[1];
+  let hrefValue = ancora.getAttribute("href");
+  alert(hrefValue);
 };
 
+let footer = document.querySelector("footer");
+footer.onclick = revealFooterLink;
 
 /* ESERCIZIO 11
        Crea una funzione che crei una tabella nell'elemento con id "tableArea".
@@ -135,62 +140,55 @@ const revealFooterLink = function () {
     */
 
 const generateTable = function () {
+  let div = document.getElementById("tableArea");
+  console.log(div);
+  let newTable = document.createElement("table");
+  let newTr = document.createElement("tr");
+  let newTh1 = document.createElement("th");
+  let newTh2 = document.createElement("th");
+  let newTh3 = document.createElement("th");
+  let newTh4 = document.createElement("th");
 
-    let div = document.getElementById("tableArea")
-    console.log(div);
-    let newTable = document.createElement("table")
-    let newTr = document.createElement("tr")
-    let newTh1 = document.createElement("th")
-    let newTh2 = document.createElement("th")
-    let newTh3 = document.createElement("th")
-    let newTh4 = document.createElement("th")
+  div.appendChild(newTable);
+  newTable.appendChild(newTr);
 
-    div.appendChild(newTable)
-    newTable.appendChild(newTr)
-   
-    newTh1.innerText = "immagine"
-    newTh2.innerText = "nome prodotto"
-    newTh3.innerText = "quantità"
-    newTh4.innerText = "prezzo"
-    newTr.appendChild(newTh1)
-    newTr.appendChild(newTh2)
-    newTr.appendChild(newTh3)
-    newTr.appendChild(newTh4) 
-
+  newTh1.innerText = "immagine";
+  newTh2.innerText = "nome prodotto";
+  newTh3.innerText = "quantità";
+  newTh4.innerText = "prezzo";
+  newTr.appendChild(newTh1);
+  newTr.appendChild(newTh2);
+  newTr.appendChild(newTh3);
+  newTr.appendChild(newTh4);
 };
 
-generateTable()
+generateTable();
 
 /* ESERCIZIO 12
        Crea una funzione che aggiunga una riga alla tabella precedentemente creata e fornisca i dati necessari come parametri
     */
 
-const addRow = function (d1,d2,d3,d4) {
+const addRow = function (d1, d2, d3, d4) {
+  let table = document.querySelector("table");
+  console.log(table);
+  let newRow = document.createElement("tr");
+  let td1 = document.createElement("td");
+  let td2 = document.createElement("td");
+  let td3 = document.createElement("td");
+  let td4 = document.createElement("td");
+  td1.innerText = d1;
+  td2.innerText = d2;
+  td3.innerText = d3;
+  td4.innerText = d4;
 
-    let table = document.querySelector("table")
-    console.log(table);
-    let newRow = document.createElement("tr")
-    let td1 = document.createElement("td")
-    let td2 = document.createElement("td")
-    let td3 = document.createElement("td")
-    let td4 = document.createElement("td")
-    td1.innerText = d1
-    td2.innerText = d2
-    td3.innerText = d3
-    td4.innerText = d4
-
-
-
-    table.appendChild(newRow)
-    newRow.appendChild(td1)
-    newRow.appendChild(td2)
-    newRow.appendChild(td3)
-    newRow.appendChild(td4)
-
-
+  table.appendChild(newRow);
+  newRow.appendChild(td1);
+  newRow.appendChild(td2);
+  newRow.appendChild(td3);
+  newRow.appendChild(td4);
 };
 
-addRow("","cuffie","2","30€")
+addRow((src = " "), "cuffie", "2", "30€");
 
 /* ESERCIZIO 14
       Crea una funzione che nasconda le immagini della tabella quando eseguita
